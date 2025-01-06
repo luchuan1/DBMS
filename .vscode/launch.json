@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug DBMS",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/dbms.out", // 可执行文件路径
+            "args": [], // 如果有命令行参数，可以在这里添加
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true, // 运行时是否使用外部控制台
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "启用 pretty-printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build" // 自动先运行编译任务
+        }
+    ]
+}

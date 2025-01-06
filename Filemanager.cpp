@@ -15,23 +15,30 @@ void FileManager::createDatabase(const std::string& dbName) {
 void FileManager::writeTableSchema(const std::string& dbName, const TableSchema& schema) {
     std::ofstream file(dbName, std::ios::binary | std::ios::app);
     if (file.is_open()) {
+        // 写入表名长度和表名
         size_t tableNameLength = schema.tableName.size();
-        file.write(reinterpret_cast<char*>(&tableNameLength), sizeof(tableNameLength));
+        file.write(reinterpret_cast<const char*>(&tableNameLength), sizeof(tableNameLength)); // 添加 const
         file.write(schema.tableName.c_str(), tableNameLength);
 
+        // 写入字段数量
         size_t fieldCount = schema.fields.size();
-        file.write(reinterpret_cast<char*>(&fieldCount), sizeof(fieldCount));
+        file.write(reinterpret_cast<const char*>(&fieldCount), sizeof(fieldCount)); // 添加 const
+
         for (const auto& field : schema.fields) {
+            // 写入字段名长度和字段名
             size_t fieldNameLength = field.name.size();
-            file.write(reinterpret_cast<char*>(&fieldNameLength), sizeof(fieldNameLength));
+            file.write(reinterpret_cast<const char*>(&fieldNameLength), sizeof(fieldNameLength)); // 添加 const
             file.write(field.name.c_str(), fieldNameLength);
 
+            // 写入字段类型长度和字段类型
             size_t fieldTypeLength = field.type.size();
-            file.write(reinterpret_cast<char*>(&fieldTypeLength), sizeof(fieldTypeLength));
+            file.write(reinterpret_cast<const char*>(&fieldTypeLength), sizeof(fieldTypeLength)); // 添加 const
             file.write(field.type.c_str(), fieldTypeLength);
 
-            file.write(reinterpret_cast<char*>(&field.length), sizeof(field.length));
+            // 写入字段长度
+            file.write(reinterpret_cast<const char*>(&field.length), sizeof(field.length)); // 添加 const
         }
+
         file.close();
         std::cout << "Table schema written to database file: " << schema.tableName << std::endl;
     } else {
