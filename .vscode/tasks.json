@@ -6,18 +6,17 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g",           // 启用调试信息
-                "main.cpp",     // 主文件
-                "FileManager.cpp", // 文件管理模块
-                "-o",           // 输出文件
-                "dbms.out"      // 可执行文件名
+                "-g",
+                "*.cpp",
+                "-o",
+                "DBMS.exe"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": ["$gcc"],
-            "detail": "生成 dbms.out 可执行文件"
+            "detail": "Generated task for building DBMS project"
         }
     ]
 }

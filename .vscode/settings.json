@@ -3,6 +3,7 @@
         "*.cjson": "jsonc",
         "*.wxss": "css",
         "*.wxs": "javascript",
+        "algorithm": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
         "cctype": "cpp",

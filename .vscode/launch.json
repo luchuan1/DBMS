@@ -2,25 +2,24 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug DBMS",
+            "name": "Run DBMS",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/dbms.out", // 可执行文件路径
-            "args": [], // 如果有命令行参数，可以在这里添加
+            "program": "D:/TZY/DBMS/DBMS/DBMS.exe",
+            "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true, // 运行时是否使用外部控制台
+            "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "gdb",
             "setupCommands": [
                 {
-                    "description": "启用 pretty-printing",
+                    "description": "Enable pretty-printing for gdb",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build" // 自动先运行编译任务
+            "preLaunchTask": "build"
         }
     ]
 }
